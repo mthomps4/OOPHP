@@ -8,7 +8,14 @@ class Render {
 
   public static function listRecipes($titles){
     asort($titles);
-    return implode("<br>", $titles);
+    $output = "";
+    foreach($titles as $key => $title){
+      if($output != ""){
+        $output .= "\n<br>";
+      }
+      $output .= "[$key] $title";
+    }
+    return $output;
   }
 
   public static function listIngredients($ingredients){
